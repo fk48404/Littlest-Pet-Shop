@@ -1,7 +1,9 @@
 <html>
 <head>
 	<title>Login/Register</title>
-	<link rel="stylesheet" type="text/css" href="css/contact.css">
+	<link rel="stylesheet" type="text/css" href="css/loginregister.css">
+	<link rel="stylesheet" type="text/css" href="mobile/loginregister.css">
+
 </head>
 <body>
 <!--HEADER-->
