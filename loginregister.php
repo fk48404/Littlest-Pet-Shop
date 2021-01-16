@@ -12,6 +12,7 @@ if(isset($_POST['submit'])){
             $query->bindParam('password', $password);
 			
             $query->execute();
+	    header('Location: index.php');
 }
 ?>
 
@@ -67,7 +68,7 @@ if(isset($_POST['submit2'])){
 	$query->bindParam('password2', $password2);
 	
 	$query->execute();
-	header('Location: index.php');
+	header('Location: loginregister.php');
 }
 ?>
 			<form action="loginregister.php" method="POST" id="register" name="reg" class="input-group" onsubmit="return registerValidate()">
