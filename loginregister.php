@@ -1,3 +1,21 @@
+<? require 'dbconnect.php'; ?>
+
+<?
+if(isset($_POST['submit'])){
+			$email = $_POST['email'];
+            $password = $_POST['password'];
+			
+            $sql = "INSERT INTO loginusers (email, password) VALUES ( :email, :password)";
+            $query = $pdo->prepare($sql);
+
+            $query->bindParam('email', $email);
+            $query->bindParam('password', $password);
+			
+            $query->execute();
+}
+?>
+
+
 <html>
 <head>
 	<title>Login/Register</title>
@@ -17,27 +35,48 @@
 		<div class="form-box">
 			<div class="button-box">
 				<div id="btn"></div>
-				<button type="button" class="toggle-btn" onclick="login()">Log In</button> 
-				<button type="button" class="toggle-btn" onclick="register()">Register</button> 
+				<button type="button" name= "submit" class="toggle-btn" onclick="login()">Log In</button> 
+				<button type="button" name= "submit2" class="toggle-btn" onclick="register()">Register</button> 
 			</div>
 			<div class="animals-icons">
 				<img src="images/d.png">
 				<img src="images/c.png">
 				<img src="images/b.png">
 			</div>
-			<form id="login" class="input-group" onsubmit="return loginValidate()">
+			<form action="loginregister.php" method="POST" id="login" class="input-group" onsubmit="return loginValidate()">
 				<input type="text" id="email" class="input-field" placeholder="Email">
 				<input type="password" id="pw" class="input-field" placeholder="Fjalekalimi"></br>
-				<button type="submit" class="submit-btn" onclick="validimi(0)"> Log in</button>
+				<button type="submit" name= "submit" class="submit-btn" onclick="validimi(0)"> Log in</button>
 			</form>
 
-			<form id="register" name="reg" class="input-group" onsubmit="return registerValidate()">
+<?
+if(isset($_POST['submit2'])){
+	$emri = $_POST['emri'];
+	$mbiemri = $_POST['mbiemri'];
+	$email = $_POST['email'];
+	$password = $_POST['password'];
+	$password2 = $_POST['password2'];
+	
+	
+	$sql = "INSERT INTO registerusers (emri,mbiemri, email, password, password2) VALUES (:emri, :mbiemri, :email, :password, :password2)";
+	$query = $pdo->prepare($sql);
+	$query->bindParam('emri', $emri);
+	$query->bindParam('mbiemri', $mbiemri);
+	$query->bindParam('email', $email);
+	$query->bindParam('password', $password);
+	$query->bindParam('password2', $password2);
+	
+	$query->execute();
+	header('Location: index.php');
+}
+?>
+			<form action="loginregister.php" method="POST" id="register" name="reg" class="input-group" onsubmit="return registerValidate()">
 				<input type="text" id="emri" class="input-field" placeholder="Emri">
 				<input type="text" id="mbiemri" class="input-field"  placeholder="Mbiemri">
 				<input type="text" id="mail" class="input-field"  placeholder="Email">
 				<input type="password" id="psw" class="input-field" name="password" placeholder="Fjalekalimi">
 				<input type="password"  class="input-field" name="password2" placeholder="Konfirmo Fjalekalimin"></br>
-				<button type="submit" class="submit-btn" onclick="return validimi(1)">Register</button>
+				<button type="submit" name= "submit2" class="submit-btn" onclick="return validimi(1)">Register</button>
 			</form>
 		</div>
 			<div id="lastFooter">
