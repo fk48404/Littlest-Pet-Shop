@@ -1,22 +1,3 @@
-<? require 'dbconnect.php'; ?>
-
-<?
-if(isset($_POST['submit'])){
-			$email = $_POST['email'];
-            $password = $_POST['password'];
-			
-            $sql = "INSERT INTO loginusers (email, password) VALUES ( :email, :password)";
-            $query = $pdo->prepare($sql);
-
-            $query->bindParam('email', $email);
-            $query->bindParam('password', $password);
-			
-            $query->execute();
-	    header('Location: index.php');
-}
-?>
-
-
 <html>
 <head>
 	<title>Login/Register</title>
@@ -26,7 +7,7 @@ if(isset($_POST['submit'])){
 </head>
 <body>
 <!--HEADER-->
-		<?php include 'include/header.php'; ?>
+	<?php include 'include/header.php'; ?>
 <br></br>
 
 	<div class="pjesaContact">
@@ -49,28 +30,7 @@ if(isset($_POST['submit'])){
 				<input type="password" id="pw" class="input-field" placeholder="Fjalekalimi"></br>
 				<button type="submit" name= "submit" class="submit-btn" onclick="validimi(0)"> Log in</button>
 			</form>
-
-<?
-if(isset($_POST['submit2'])){
-	$emri = $_POST['emri'];
-	$mbiemri = $_POST['mbiemri'];
-	$email = $_POST['email'];
-	$password = $_POST['password'];
-	$password2 = $_POST['password2'];
-	
-	
-	$sql = "INSERT INTO registerusers (emri,mbiemri, email, password, password2) VALUES (:emri, :mbiemri, :email, :password, :password2)";
-	$query = $pdo->prepare($sql);
-	$query->bindParam('emri', $emri);
-	$query->bindParam('mbiemri', $mbiemri);
-	$query->bindParam('email', $email);
-	$query->bindParam('password', $password);
-	$query->bindParam('password2', $password2);
-	
-	$query->execute();
-	header('Location: loginregister.php');
-}
-?>
+<? include 'backendphp/insertimeReg.php' ?>
 			<form action="loginregister.php" method="POST" id="register" name="reg" class="input-group" onsubmit="return registerValidate()">
 				<input type="text" id="emri" class="input-field" placeholder="Emri">
 				<input type="text" id="mbiemri" class="input-field"  placeholder="Mbiemri">
@@ -80,11 +40,8 @@ if(isset($_POST['submit2'])){
 				<button type="submit" name= "submit2" class="submit-btn" onclick="return validimi(1)">Register</button>
 			</form>
 		</div>
-			<div id="lastFooter">
-				<p>&copy; 2020 Littlest Pet Shop </p>
-			</div>
 	</div>
-		
+	<?php include 'include/footer.php'; ?>	
 	<script src="js/loginregister.js"></script>
 </body>
 </html>
