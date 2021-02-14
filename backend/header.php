@@ -7,8 +7,8 @@
                     <li><a href="../cats.php">Cats</a></li>
                     <li><a href="../bunnies.php">Bunnies</a></li>
                     <li><a href="../educateme.php">Educate me</a></li>
-		    		<li><a href="../about.php">About us</a></li>
-		    		<li><a href="../dashboard.php">Dashboard</a></li>
+		    <li><a href="../about.php">About us</a></li>
+		    <li><a href="../dashboard.php">Dashboard</a></li>
                     <li><a href="../loginregister.php">Login/Register</a></li>
                 </ul>
         </div>
