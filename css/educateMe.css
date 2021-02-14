@@ -54,7 +54,7 @@
 	margin-top: 5px;
 }
 
-/*-------------------------------------------educateMe-------------------------------------------*/
+/*----------------------educateMe---------------------*/
 #educateMe {
 	text-align: center; 
 	padding-top: 2%;
@@ -66,7 +66,6 @@
 	margin-left: 10%; 
 	font-size: 125%;
 }
-
 .section1 {
 	background-color: #DDDDDD;
 	display: inline-block;
@@ -84,23 +83,22 @@
 	font-size: 120%;
 	text-align: center;
 }
-.section1  article {
+.section1 article {
 	float: left;
 	width: 50%;
 	min-height: 230px;
 	justify-content : center;
 }
-.section1  article img {
+.section1 article img {
 	width: 30%;
 	margin-left: 1%;
 	margin-top:5%;
 }
-.section1  aside p {
+.section1 aside p {
 	margin: 20% 5% 15% -10%;
 	font-size: 110%;
 	text-align: center;
 }
-
 .section2 {
 	background-color: #DDDDDD;
 	display: inline-block;
@@ -244,22 +242,16 @@
 	margin-top: 16%;
 }
 
-
-
-
-
 /* --------FOOTERI------------- */
-
-#footer {
+#footer{
 	width: 100%;
 	height: 40px;
-
 }
 #footer h2{
 	text-align: center;
 	color: #880e4f;
 }
-#footer p {
+#footer p{
 	text-align: center;
 	font-weight: bold;
 	font-size: 100%;
